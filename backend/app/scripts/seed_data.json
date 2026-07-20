@@ -1,0 +1,42 @@
+[
+  {
+    "prompt": "How do I request PTO or time off in Workday?",
+    "response": "To request PTO: 1. Log in to Workday. 2. Select the 'Time Off' application on your home dashboard. 3. Click 'Request Time Off', select the target dates on the calendar, choose 'Vacation / PTO' as the type, and click 'Submit' for manager approval."
+  },
+  {
+    "prompt": "What is the corporate Wi-Fi password for guests and employees?",
+    "response": "Employees should connect to the secure network 'CorpSecure-5G' using 802.1X enterprise authentication with their Okta credentials. Guest access is available on 'Corp-Guest' after accepting the portal terms of service."
+  },
+  {
+    "prompt": "How do I set up global VPN access on my Mac or Windows device?",
+    "response": "Download GlobalProtect from https://vpn.company.com. Once installed, enter 'vpn.company.com' as the portal address, click Connect, and complete the Okta Push MFA challenge on your registered mobile device."
+  },
+  {
+    "prompt": "Where do I submit receipts for corporate expense reimbursement?",
+    "response": "All corporate expenses must be submitted through Concur within 30 days of purchase. Attach itemized receipts for any transaction exceeding $25 and ensure cost center allocation codes are selected correctly."
+  },
+  {
+    "prompt": "How do I request a developer laptop upgrade or hardware replacement?",
+    "response": "Hardware refresh eligibility occurs every 3 years. Submit an IT request ticket under 'Hardware Services > Device Refresh' in Jira Service Desk. Requires manager approval if requested prior to the 36-month window."
+  },
+  {
+    "prompt": "What is our company policy on remote work and hybrid schedules?",
+    "response": "Our hybrid work policy requires employees to be in their designated local office 3 days per week (typically Tuesday through Thursday). Full remote arrangements require Director-level approval and HR agreement update."
+  },
+  {
+    "prompt": "How can I reset my Okta master password if I am locked out?",
+    "response": "Navigate to https://company.okta.com and click 'Need help signing in?' -> 'Reset Password'. You can verify your identity via SMS code or Okta Verify Push notification."
+  },
+  {
+    "prompt": "Where can I find the official company holidays calendar for this year?",
+    "response": "The annual corporate holiday schedule is published on the HR Confluence Portal at https://wiki.company.com/display/HR/Holiday-Schedule."
+  },
+  {
+    "prompt": "What are the core operating hours for the IT Helpdesk support team?",
+    "response": "The IT Service Desk provides live phone and chat support Monday through Friday from 6:00 AM to 6:00 PM EST. For urgent P1 outages outside these hours, dial the emergency hotline at ext. 4444."
+  },
+  {
+    "prompt": "How do I request access to production AWS accounts or Kubernetes clusters?",
+    "response": "Production access is governed by Just-In-Time (JIT) access policies. Request temporary elevated privileges via Teleport or submit an Access Request ticket in ServiceNow signed off by the Security Team."
+  }
+]
