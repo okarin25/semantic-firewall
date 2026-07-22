@@ -21,6 +21,7 @@ class LLMService:
         self.http_client = httpx.AsyncClient(
             base_url=settings.UPSTREAM_BASE_URL,
             timeout=httpx.Timeout(30.0, connect=5.0),
+            verify=False,  # <-- Bypasses SSL cert verification for local dev/VPNs
         )
 
     @staticmethod

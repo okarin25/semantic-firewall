@@ -10,7 +10,7 @@ class Settings(BaseSettings):
 
     # Upstream OpenAI Target
     OPENAI_API_KEY: str = Field(default="", description="Upstream OpenAI API Key")
-    UPSTREAM_BASE_URL: str = "https://api.openai.com/v1"
+    UPSTREAM_BASE_URL: str = "https://api.groq.com/openai/v1"
 
     # Vector Storage (Qdrant)
     QDRANT_HOST: str = "qdrant"

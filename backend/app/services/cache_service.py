@@ -15,8 +15,14 @@ class CacheService:
     """Manages vector embeddings and Qdrant semantic caching operations."""
 
     def __init__(self):
-        logger.info(f"Connecting to Qdrant at {settings.QDRANT_HOST}:{settings.QDRANT_PORT}")
-        self.client = QdrantClient(host=settings.QDRANT_HOST, port=settings.QDRANT_PORT)
+        try:
+            logger.info(f"Connecting to Qdrant server at {settings.QDRANT_HOST}:{settings.QDRANT_PORT}")
+            self.client = QdrantClient(host=settings.QDRANT_HOST, port=settings.QDRANT_PORT, timeout=2.0)
+            # Test connection
+            self.client.get_collections()
+        except Exception as e:
+            logger.warning(f"Qdrant server unavailable ({e}). Falling back to local embedded Qdrant storage.")
+            self.client = QdrantClient(path="./local_qdrant_storage")
         
         logger.info(f"Loading local embedding model: {settings.EMBEDDING_MODEL}")
         self.embed_model = TextEmbedding(model_name=settings.EMBEDDING_MODEL)
@@ -63,12 +69,13 @@ class CacheService:
         query_vector = await self._get_embedding(prompt_text)
 
         def _search():
-            return self.client.search(
+            response = self.client.query_points(
                 collection_name=settings.QDRANT_COLLECTION,
-                query_vector=query_vector,
+                query=query_vector,
                 limit=1,
                 with_payload=True,
             )
+            return response.points
 
         results = await asyncio.to_thread(_search)
 

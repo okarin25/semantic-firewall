@@ -14,6 +14,7 @@ export interface DashboardMetrics {
 export interface AuditLog {
   request_id: string;
   prompt_text: string;
+  provider: string;   
   model_requested: string;
   cache_hit: boolean;
   similarity_score: number | null;

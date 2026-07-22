@@ -1,3 +1,12 @@
+import httpx
+# Bypass corporate SSL certificate verification for local development
+old_init = httpx.Client.__init__
+def new_init(self, *args, **kwargs):
+    kwargs["verify"] = False
+    old_init(self, *args, **kwargs)
+httpx.Client.__init__ = new_init
+
+
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

@@ -20,8 +20,8 @@ export const getRecentLogs = async (limit: number = 50): Promise<AuditLog[]> => 
 
 export const sendTestPrompt = async (promptText: string): Promise<SendPromptResult> => {
   const payload = {
-    provider: 'openai',
-    model: 'gpt-4o-mini',
+    provider: 'groq',
+    model: 'llama-3.3-70b-versatile',
     messages: [{ role: 'user', content: promptText }],
     user_id: 'nextjs-sandbox-user',
     session_id: 'sandbox-session-01',
